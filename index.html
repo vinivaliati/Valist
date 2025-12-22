@@ -1,215 +1,504 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valist</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valist - Minhas Avaliações</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto;
-    background:#14181c;color:#9ab
-}
-.header{background:#1c2228;border-bottom:1px solid #2c3440;position:sticky;top:0;z-index:100}
-.nav-container{max-width:1200px;margin:auto;padding:1rem 2rem;display:flex;justify-content:space-between}
-.logo{color:#5ac8fa;font-size:1.8rem;font-weight:700;text-decoration:none}
-.nav-links{list-style:none;display:flex;gap:1.5rem}
-.nav-links a{color:#9ab;text-decoration:none}
-.nav-links a.active{color:#5ac8fa}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #14181c;
+            color: #9ab;
+            line-height: 1.6;
+        }
 
-.container{max-width:1200px;margin:auto;padding:3rem 2rem}
+        .header {
+            background-color: #1c2228;
+            border-bottom: 1px solid #2c3440;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-.items-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem}
-@media(max-width:900px){.items-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:500px){.items-grid{grid-template-columns:repeat(2,1fr)}}
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.item-card{background:#1c2228;border-radius:8px;cursor:pointer;overflow:hidden}
-.item-card:hover{transform:translateY(-4px)}
-.item-image{aspect-ratio:2/3;background:#2c3440}
-.item-image img{width:100%;height:100%;object-fit:cover}
-.placeholder{display:flex;align-items:center;justify-content:center;height:100%;font-size:3rem}
-.item-info{padding:1rem}
-.item-name{color:#fff;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.item-meta{display:flex;justify-content:space-between;font-size:.85rem}
-.item-rating{background:#5ac8fa;color:#14181c;padding:.2rem .5rem;border-radius:4px}
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #5ac8fa;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
 
-.filters{background:#1c2228;padding:1rem;border-radius:8px;display:flex;gap:1rem;flex-wrap:wrap}
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
-.modal-overlay{
-    position:fixed;inset:0;background:rgba(0,0,0,.7);
-    display:none;align-items:center;justify-content:center;z-index:1000
-}
-.modal{
-    background:#1c2228;border-radius:10px;
-    max-width:700px;width:90%;padding:2rem;position:relative
-}
-.modal img{width:200px;border-radius:8px}
-.close-btn{
-    position:absolute;top:1rem;right:1rem;
-    background:none;border:none;color:#9ab;font-size:1.5rem;cursor:pointer
-}
+        .nav-links a {
+            color: #9ab;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
 
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:2rem}
-.stat-box{background:#1c2228;padding:2rem;border-radius:8px;text-align:center}
-.stat-box h2{color:#5ac8fa;font-size:2.5rem}
-</style>
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #5ac8fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #678;
+        }
+
+        .category-section {
+            margin-bottom: 4rem;
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #2c3440;
+        }
+
+        .category-header h2 {
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        .view-all {
+            color: #5ac8fa;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+        }
+
+        .view-all:hover {
+            opacity: 0.8;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+        }
+
+        .item-card {
+            background-color: #1c2228;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .item-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(90, 200, 250, 0.1);
+        }
+
+        .item-image {
+            width: 100%;
+            aspect-ratio: 2/3;
+            object-fit: cover;
+            background-color: #2c3440;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2c3440 0%, #1c2228 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #445566;
+        }
+
+        .item-info {
+            padding: 1rem;
+        }
+
+        .item-name {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .item-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .item-rating {
+            background-color: #5ac8fa;
+            color: #14181c;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .item-date {
+            color: #678;
+        }
+
+        .filters {
+            background-color: #1c2228;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .filter-group label {
+            font-size: 0.85rem;
+            color: #678;
+        }
+
+        .filter-group input,
+        .filter-group select {
+            background-color: #2c3440;
+            border: 1px solid #445566;
+            color: #9ab;
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .filter-group input:focus,
+        .filter-group select:focus {
+            outline: none;
+            border-color: #5ac8fa;
+        }
+
+        .category-page-header {
+            margin-bottom: 2rem;
+        }
+
+        .category-page-header h1 {
+            color: #fff;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats {
+            color: #678;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 1024px) {
+            .items-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .items-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .items-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo" onclick="showPage('home')">Valist</a>
+            <ul class="nav-links">
+                <li><a href="#" class="active" onclick="showPage('home')">Início</a></li>
+                <li><a href="#" onclick="showPage('restaurantes')">Restaurantes</a></li>
+                <li><a href="#" onclick="showPage('livros')">Livros</a></li>
+                <li><a href="#" onclick="showPage('animes')">Animes</a></li>
+                <li><a href="#" onclick="showPage('games')">Games</a></li>
+                <li><a href="#" onclick="showPage('series-filmes')">Séries/Filmes</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header class="header">
-<nav class="nav-container">
-<a href="#" class="logo" onclick="showPage('home')">Valist</a>
-<ul class="nav-links">
-<li><a href="#" class="active" onclick="showPage('home')">Início</a></li>
-<li><a href="#" onclick="showPage('restaurantes')">Restaurantes</a></li>
-<li><a href="#" onclick="showPage('livros')">Livros</a></li>
-<li><a href="#" onclick="showPage('animes')">Animes</a></li>
-<li><a href="#" onclick="showPage('games')">Games</a></li>
-<li><a href="#" onclick="showPage('series-filmes')">Séries/Filmes</a></li>
-<li><a href="#" onclick="showPage('estatisticas')">Estatísticas</a></li>
-</ul>
-</nav>
-</header>
+    <main id="main-content"></main>
 
-<main id="main-content"></main>
+    <script>
+        let allData = [];
+        const CATEGORIES = {
+            'restaurantes': 'Restaurantes',
+            'livros': 'Livros',
+            'animes': 'Animes',
+            'games': 'Games',
+            'series-filmes': 'Séries/Filmes'
+        };
 
-<!-- MODAL -->
-<div id="itemModal" class="modal-overlay" onclick="closeModal(event)">
-<div class="modal">
-<button class="close-btn" onclick="closeModal()">✕</button>
-<div id="modalContent"></div>
-</div>
-</div>
+        // Dados de exemplo - SUBSTITUA PELO SEU CSV
+        const sampleData = `id,categoria,nome,nota,descricao,tamanho,unidade_tamanho,data_avaliacao,ano
+1,restaurantes,Pizzaria Bella,9.5,Melhor pizza da cidade com massa artesanal,1,unidade,2024-12-01,2024
+2,restaurantes,Sushi House,8.0,Sushi fresco e bem preparado,1,unidade,2024-11-15,2024
+3,restaurantes,Burger Station,7.5,Hambúrgueres artesanais saborosos,1,unidade,2024-10-20,2024
+4,livros,1984,10.0,Obra-prima distópica de Orwell,328,páginas,2024-12-10,1949
+5,livros,O Hobbit,9.0,Aventura fantástica encantadora,310,páginas,2024-11-20,1937
+6,livros,Sapiens,8.5,História fascinante da humanidade,443,páginas,2024-10-05,2011
+7,animes,Steins Gate,10.0,Viagem no tempo com roteiro perfeito,24,episódios,2024-12-15,2011
+8,animes,Fullmetal Alchemist,9.5,Alquimia e filosofia em perfeita harmonia,64,episódios,2024-11-25,2003
+9,animes,Death Note,9.0,Gato e rato psicológico intenso,37,episódios,2024-10-30,2006
+10,games,The Last of Us,10.0,Narrativa emocionante em mundo pós-apocalíptico,25,horas,2024-12-05,2013
+11,games,Hollow Knight,9.5,Metroidvania perfeito com arte linda,40,horas,2024-11-10,2017
+12,games,Celeste,9.0,Plataforma desafiador com mensagem poderosa,12,horas,2024-10-15,2018
+13,series-filmes,Breaking Bad,10.0,A melhor série de todos os tempos,62,episódios,2024-12-20,2008
+14,series-filmes,Inception,9.5,Thriller cerebral de Nolan,148,minutos,2024-11-05,2010
+15,series-filmes,The Office,8.5,Comédia mockumentary hilária,201,episódios,2024-10-10,2005`;
 
-<script>
-let allData=[]
-const CATEGORIES={
-'restaurantes':'Restaurantes',
-'livros':'Livros',
-'animes':'Animes',
-'games':'Games',
-'series-filmes':'Séries/Filmes'
-}
+        function parseCSV(csv) {
+            const lines = csv.trim().split('\n');
+            const headers = lines[0].split(',');
+            
+            return lines.slice(1).map(line => {
+                const values = line.split(',');
+                const obj = {};
+                headers.forEach((header, index) => {
+                    obj[header.trim()] = values[index]?.trim() || '';
+                });
+                obj.nota = parseFloat(obj.nota);
+                obj.tamanho = parseInt(obj.tamanho);
+                obj.ano = parseInt(obj.ano);
+                return obj;
+            });
+        }
 
-function parseCSV(csv){
-const lines=csv.trim().split('\n')
-const headers=lines[0].split(',')
-return lines.slice(1).map(l=>{
-const v=l.split(',')
-const o={}
-headers.forEach((h,i)=>o[h.trim()]=v[i]?.trim()||'')
-o.id=+o.id;o.nota=+o.nota;o.tamanho=+o.tamanho;o.ano=+o.ano
-return o})
-}
+        function loadData() {
+            // PARA USO REAL: Carregue seu CSV aqui
+            // fetch('data.csv').then(r => r.text()).then(csv => {
+            //     allData = parseCSV(csv);
+            //     showPage('home');
+            // });
+            
+            allData = parseCSV(sampleData);
+            showPage('home');
+        }
 
-function loadData(){
-fetch('data.csv').then(r=>r.text()).then(csv=>{
-allData=parseCSV(csv)
-showPage('home')
-})
-}
+        function getImagePath(id) {
+            return `images/${id}.jpg`;
+        }
 
-function getImagePath(id){return `images/${id}.jpg`}
+        function createItemCard(item) {
+            return `
+                <div class="item-card">
+                    <div class="item-image">
+                        <img src="${getImagePath(item.id)}" 
+                             alt="${item.nome}"
+                             onerror="this.parentElement.innerHTML='<div class=\\'placeholder\\'>📷</div>'">
+                    </div>
+                    <div class="item-info">
+                        <div class="item-name" title="${item.nome}">${item.nome}</div>
+                        <div class="item-meta">
+                            <span class="item-rating">${item.nota.toFixed(1)}</span>
+                            <span class="item-date">${new Date(item.data_avaliacao).toLocaleDateString('pt-BR', {month: 'short', year: 'numeric'})}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
 
-function createItemCard(item){
-return `
-<div class="item-card" onclick="openModal(${item.id})">
-<div class="item-image">
-<img src="${getImagePath(item.id)}" onerror="this.parentElement.innerHTML='<div class=\\'placeholder\\'>📷</div>'">
-</div>
-<div class="item-info">
-<div class="item-name">${item.nome}</div>
-<div class="item-meta">
-<span class="item-rating">${item.nota.toFixed(1)}</span>
-<span>${new Date(item.data_avaliacao).toLocaleDateString('pt-BR')}</span>
-</div>
-</div>
-</div>`
-}
+        function getTopItems(categoria, limit = 5) {
+            return allData
+                .filter(item => item.categoria === categoria)
+                .sort((a, b) => {
+                    if (b.nota !== a.nota) return b.nota - a.nota;
+                    return new Date(b.data_avaliacao) - new Date(a.data_avaliacao);
+                })
+                .slice(0, limit);
+        }
 
-function showHome(){
-let html=`<div class="container"><h1 style="color:#fff">Valist</h1>`
-Object.keys(CATEGORIES).forEach(cat=>{
-const items=allData.filter(i=>i.categoria===cat).sort((a,b)=>b.nota-a.nota).slice(0,5)
-if(!items.length)return
-html+=`<h2 style="margin:2rem 0;color:#fff">${CATEGORIES[cat]}</h2>
-<div class="items-grid">${items.map(createItemCard).join('')}</div>`
-})
-html+='</div>'
-document.getElementById('main-content').innerHTML=html
-}
+        function showHomePage() {
+            const categories = Object.keys(CATEGORIES);
+            let html = `
+                <div class="container">
+                    <div class="hero">
+                        <h1>Valist</h1>
+                        <p>Minhas avaliações pessoais de restaurantes, livros, animes, games e séries/filmes</p>
+                    </div>
+            `;
 
-function showCategory(cat){
-window.currentCategory=cat
-const items=allData.filter(i=>i.categoria===cat)
-document.getElementById('main-content').innerHTML=`
-<div class="container">
-<h1 style="color:#fff">${CATEGORIES[cat]}</h1>
-<div class="items-grid">${items.map(createItemCard).join('')}</div>
-</div>`
-}
+            categories.forEach(cat => {
+                const topItems = getTopItems(cat);
+                if (topItems.length === 0) return;
 
-function openModal(id){
-const i=allData.find(x=>x.id==id)
-document.getElementById('modalContent').innerHTML=`
-<div style="display:flex;gap:2rem;flex-wrap:wrap">
-<img src="${getImagePath(i.id)}">
-<div>
-<h2 style="color:#fff">${i.nome}</h2>
-<p><b>Categoria:</b> ${CATEGORIES[i.categoria]}</p>
-<p><b>Subcategoria:</b> ${i.subcategoria}</p>
-<p><b>Nota:</b> ${i.nota}</p>
-<p><b>Ano:</b> ${i.ano}</p>
-<p><b>Tamanho:</b> ${i.tamanho} ${i.unidade_tamanho}</p>
-<p><b>Avaliado em:</b> ${new Date(i.data_avaliacao).toLocaleDateString('pt-BR')}</p>
-<p style="margin-top:1rem">${i.descricao}</p>
-</div>
-</div>`
-document.getElementById('itemModal').style.display='flex'
-}
+                html += `
+                    <section class="category-section">
+                        <div class="category-header">
+                            <h2>${CATEGORIES[cat]}</h2>
+                            <a href="#" class="view-all" onclick="showPage('${cat}')">Ver todos →</a>
+                        </div>
+                        <div class="items-grid">
+                            ${topItems.map(item => createItemCard(item)).join('')}
+                        </div>
+                    </section>
+                `;
+            });
 
-function closeModal(e){
-if(!e||e.target.id==='itemModal')
-document.getElementById('itemModal').style.display='none'
-}
+            html += '</div>';
+            document.getElementById('main-content').innerHTML = html;
+        }
 
-function showStats(){
-const perMonth={}
-let pages=0,episodes=0
-allData.forEach(i=>{
-const m=i.data_avaliacao.slice(0,7)
-perMonth[m]=(perMonth[m]||0)+1
-if(i.unidade_tamanho==='páginas')pages+=i.tamanho
-if(i.unidade_tamanho==='episódios')episodes+=i.tamanho
-})
-document.getElementById('main-content').innerHTML=`
-<div class="container">
-<h1 style="color:#fff">Estatísticas</h1>
-<div class="stats-grid">
-<div class="stat-box"><h2>${pages}</h2><p>Páginas lidas</p></div>
-<div class="stat-box"><h2>${episodes}</h2><p>Episódios assistidos</p></div>
-</div>
-<h2 style="color:#fff;margin-top:3rem">Por mês</h2>
-${Object.entries(perMonth).map(([m,v])=>`
-<div>${m} (${v})
-<div style="background:#2c3440;height:8px">
-<div style="width:${v*20}px;height:8px;background:#5ac8fa"></div>
-</div></div>`).join('')}
-</div>`
-}
+        function showCategoryPage(categoria) {
+            const categoryData = allData.filter(item => item.categoria === categoria);
+            
+            let html = `
+                <div class="container">
+                    <div class="category-page-header">
+                        <h1>${CATEGORIES[categoria]}</h1>
+                        <p class="stats">${categoryData.length} itens avaliados</p>
+                    </div>
 
-function showPage(p){
-document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'))
-event?.target?.classList.add('active')
-if(p==='home')showHome()
-else if(p==='estatisticas')showStats()
-else showCategory(p)
-}
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label>Buscar</label>
+                            <input type="text" id="searchInput" placeholder="Nome do item..." onkeyup="applyFilters()">
+                        </div>
+                        <div class="filter-group">
+                            <label>Nota mínima</label>
+                            <input type="number" id="minRating" min="0" max="10" step="0.5" placeholder="0" onchange="applyFilters()">
+                        </div>
+                        <div class="filter-group">
+                            <label>Nota máxima</label>
+                            <input type="number" id="maxRating" min="0" max="10" step="0.5" placeholder="10" onchange="applyFilters()">
+                        </div>
+                        <div class="filter-group">
+                            <label>Ordenar por</label>
+                            <select id="sortBy" onchange="applyFilters()">
+                                <option value="nota-desc">Nota (maior)</option>
+                                <option value="nota-asc">Nota (menor)</option>
+                                <option value="nome-asc">Nome (A-Z)</option>
+                                <option value="nome-desc">Nome (Z-A)</option>
+                                <option value="data-desc">Data (recente)</option>
+                                <option value="data-asc">Data (antiga)</option>
+                            </select>
+                        </div>
+                    </div>
 
-loadData()
-</script>
+                    <div id="filteredItems" class="items-grid"></div>
+                </div>
+            `;
 
+            document.getElementById('main-content').innerHTML = html;
+            window.currentCategory = categoria;
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const search = document.getElementById('searchInput')?.value.toLowerCase() || '';
+            const minRating = parseFloat(document.getElementById('minRating')?.value) || 0;
+            const maxRating = parseFloat(document.getElementById('maxRating')?.value) || 10;
+            const sortBy = document.getElementById('sortBy')?.value || 'nota-desc';
+
+            let filtered = allData.filter(item => 
+                item.categoria === window.currentCategory &&
+                item.nome.toLowerCase().includes(search) &&
+                item.nota >= minRating &&
+                item.nota <= maxRating
+            );
+
+            const [field, order] = sortBy.split('-');
+            filtered.sort((a, b) => {
+                let comparison = 0;
+                if (field === 'nota') {
+                    comparison = a.nota - b.nota;
+                } else if (field === 'nome') {
+                    comparison = a.nome.localeCompare(b.nome);
+                } else if (field === 'data') {
+                    comparison = new Date(a.data_avaliacao) - new Date(b.data_avaliacao);
+                }
+                return order === 'desc' ? -comparison : comparison;
+            });
+
+            document.getElementById('filteredItems').innerHTML = 
+                filtered.map(item => createItemCard(item)).join('') || 
+                '<p style="color: #678; text-align: center; padding: 2rem;">Nenhum item encontrado.</p>';
+        }
+
+        function showPage(page) {
+            // Update active nav link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            event?.target?.classList.add('active');
+
+            if (page === 'home') {
+                showHomePage();
+            } else {
+                showCategoryPage(page);
+            }
+        }
+
+        // Initialize
+        loadData();
+    </script>
 </body>
 </html>
