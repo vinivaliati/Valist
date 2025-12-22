@@ -1,133 +1,132 @@
 ﻿id,categoria,nome,nota,descricao,tamanho,unidade_tamanho,data_avaliacao,ano
-1,restaurantes,Guacamole,9.5,Ótimo restaurante mexicano; aconselho fortemente a pedir ou taco de pollo; ou o taco al pastor; só não é um 10 pela inconstância; que tem dias muito bons e tem outros mais ou menos,1,unidade,31/12/2025,2023
-2,livros,1984,7.0,Achei o livro bom; porem estava com uma expectativa muito alta; acabei me frustrando um pouco,328,páginas,31/12/2025,1949
-3,animes,One piece,10.0,Melhor anime,1122,episódios,31/12/2025,1999
-4,games,Furi,9.5,TBD,13,horas,31/12/2025,2025
-5,series-filmes,Stranger Things,7.5,TBD,54,episódios,31/12/2025,2016
-6,livros,O problema dos três corpos,8.0,TBD,316,páginas,31/12/2025,2006
-7,animes,Dandandan,9.0,TBD,24,episódios,31/12/2025,2021
-8,animes,5-toubun no Hanayome,6.0,TBD,24,episódios,31/12/2025,2017
-9,animes,86,6.5,TBD,24,episódios,31/12/2025,2017
-10,animes,Akame ga kill,6.0,TBD,24,episódios,31/12/2025,2010
-11,animes,ano hana,9.0,TBD,11,episódios,31/12/2025,2011
-12,animes,Assasination Classroom,8.5,TBD,45,episódios,31/12/2025,2012
-13,animes,Banana fish,10.0,TBD,24,episódios,31/12/2025,1985
-14,animes,Beastars,5.0,TBD,12,episódios,31/12/2025,2016
-15,animes,Black Clover,9.5,TBD,170,episódios,31/12/2025,2015
-16,animes,Blue lock,9.0,TBD,38,episódios,31/12/2025,2018
-17,animes,Erased,7.0,TBD,12,episódios,31/12/2025,2012
-18,animes,My hero academia,9.5,TBD,159,episódios,31/12/2025,2014
-19,animes,Chainsaw Man,8.5,TBD,12,episódios,31/12/2025,2018
-20,animes,Charlotte,9.0,TBD,13,episódios,31/12/2025,2015
-21,animes,Code Geass,7.0,TBD,50,episódios,31/12/2025,2006
-22,animes,Cowboy Bebop,8.0,TBD,26,episódios,31/12/2025,1998
-23,animes,Darling in the fraxx,4.0,TBD,24,episódios,31/12/2025,2018
-24,animes,Death Note,6.0,TBD,37,episódios,31/12/2025,2003
-25,animes,Dorohedoro,8.0,TBD,12,episódios,31/12/2025,2000
-26,animes,Dr. Stone,5.0,TBD,24,episódios,31/12/2025,2017
-27,animes,Dungeon ni deai,6.0,TBD,86,episódios,31/12/2025,2013
-28,animes,Full metal alchemist Brotherhood,10.0,TBD,64,episódios,31/12/2025,2009
-29,animes,To your eternity,5.5,TBD,20,episódios,31/12/2025,2016
-30,animes,Gintama,8.5,TBD,303,episódios,31/12/2025,2003
-31,animes,Golden Boy,8.0,TBD,6,episódios,31/12/2025,1992
-32,animes,Great Pretender,10.0,TBD,23,episódios,31/12/2025,2020
-33,animes,Haikyuu,10.0,TBD,73,episódios,31/12/2025,2012
-34,animes,Put them on,5.0,TBD,12,episódios,31/12/2025,2025
-35,animes,Horimiya,8.0,TBD,26,episódios,31/12/2025,2011
-36,animes,Hunter x Hunter,9.5,TBD,148,episódios,31/12/2025,1998
-37,animes,Jujutsu Kaizen,7.0,TBD,47,episódios,31/12/2025,2018
-38,animes,Tower of god,6.5,TBD,39,episódios,31/12/2025,2010
-39,animes,Demon Slayer,7.5,TBD,65,episódios,31/12/2025,2016
-40,animes,Kuroko no Basket,10.0,TBD,75,episódios,31/12/2025,2008
-41,animes,Nanatsu no Taizai,7.5,TBD,75,episódios,31/12/2025,2012
-42,animes,Naruto,8.0,TBD,220,episódios,31/12/2025,1999
-43,animes,Naruto shippuden,7.5,TBD,500,episódios,31/12/2025,2007
-44,animes,No game No life,3.0,TBD,12,episódios,31/12/2025,2012
-45,animes,One punch man,8.5,TBD,24,episódios,31/12/2025,2009
-46,animes,Solo Levening,9.0,TBD,25,episódios,31/12/2025,2016
-47,animes,Ranking of kings,10.0,TBD,23,episódios,31/12/2025,2017
-48,animes,Bunny girl senpai,8.0,TBD,13,episódios,31/12/2025,2014
-49,animes,Your lie in April,10.0,TBD,22,episódios,31/12/2025,2011
-50,animes,Attack on Titan,9.0,TBD,63,episódios,31/12/2025,2009
-51,animes,Evangelion,6.0,TBD,26,episódios,31/12/2025,1995
-52,animes,Food Wars,8.0,TBD,86,episódios,31/12/2025,2012
-53,animes,SK8,6.0,TBD,12,episódios,31/12/2025,2021
-54,animes,Frieren,10.0,TBD,28,episódios,31/12/2025,2020
-55,animes,SPY X Family,9.0,TBD,37,episódios,31/12/2025,2019
-56,animes,Sword art online,10.0,TBD,75,episódios,31/12/2025,2009
-57,animes,Shield hero,5.5,TBD,38,episódios,31/12/2025,2013
-58,animes,The god of high school,7.5,TBD,13,episódios,31/12/2025,2011
-59,animes,Vin land saga,9.5,TBD,46,episódios,31/12/2025,2005
-60,animes,Violet evergarden,6.0,TBD,13,episódios,31/12/2025,2015
-61,animes,Wave,5.0,TBD,12,episódios,31/12/2025,2020
-62,animes,The promissed neverland,8.5,TBD,24,episódios,31/12/2025,2016
-63,animes,Classroom of elite,9.0,TBD,38,episódios,31/12/2025,2015
-64,restaurantes,Basset,7.5,TBD,1,unidade,31/12/2025,-
-65,restaurantes,Antojitos,5.0,TBD,1,unidade,31/12/2025,-
-66,restaurantes,Tadeu o rei do pierogi,6.0,TBD,1,unidade,31/12/2025,-
-67,restaurantes,Fujii mercado municipal,10.0,TBD,1,unidade,31/12/2025,-
-68,restaurantes,Bar do açougueiro,5.0,TBD,1,unidade,31/12/2025,-
-69,restaurantes,Carne de onça fantinato,7.5,TBD,1,unidade,31/12/2025,-
-70,restaurantes,Icaros,3.5,TBD,1,unidade,31/12/2025,-
-71,restaurantes,Café cultura,6.0,TBD,1,unidade,31/12/2025,-
-72,restaurantes,Famiglia ceschin,4.0,TBD,1,unidade,31/12/2025,-
-73,restaurantes,Cão veio,7.0,TBD,1,unidade,31/12/2025,-
-74,restaurantes,Nakaba,8.5,TBD,1,unidade,31/12/2025,-
-75,restaurantes,Auau,6.0,TBD,1,unidade,31/12/2025,-
-76,restaurantes,Oishi ramen bar,8.0,TBD,1,unidade,31/12/2025,-
-77,restaurantes,Sushi arte,6.5,TBD,1,unidade,31/12/2025,-
-78,restaurantes,Oue sushi,6.0,TBD,1,unidade,31/12/2025,-
-79,restaurantes,Aska lamen,10.0,TBD,1,unidade,31/12/2025,-
-80,restaurantes,Feirinha liberdade,10.0,TBD,1,unidade,31/12/2025,-
-81,restaurantes,Kamikaze,7.0,TBD,1,unidade,31/12/2025,-
-82,restaurantes,Ippai ramen,5.0,TBD,1,unidade,31/12/2025,-
-83,restaurantes,Cho street food,4.5,TBD,1,unidade,31/12/2025,-
-84,restaurantes,Kharina,5.5,TBD,1,unidade,31/12/2025,-
-85,restaurantes,Azuki,5.0,TBD,1,unidade,31/12/2025,-
-86,restaurantes,Itally café,5.0,TBD,1,unidade,31/12/2025,-
-87,restaurantes,Kitsune,7.5,TBD,1,unidade,31/12/2025,-
-88,restaurantes,55,5.5,TBD,1,unidade,31/12/2025,-
-89,restaurantes,Bar do alemão,5.0,TBD,1,unidade,31/12/2025,-
-90,restaurantes,Gyozabar,2.5,TBD,1,unidade,31/12/2025,-
-91,restaurantes,Coco bambu,3.0,TBD,1,unidade,31/12/2025,-
-92,restaurantes,Sotile,6.0,TBD,1,unidade,31/12/2025,-
-93,restaurantes,Chez margot,9.0,TBD,1,unidade,31/12/2025,-
-94,restaurantes,Soft,9.0,TBD,1,unidade,31/12/2025,-
-95,restaurantes,Kolosso,2.0,TBD,1,unidade,31/12/2025,-
-96,restaurantes,Aish baladi,5.0,TBD,1,unidade,31/12/2025,-
-97,restaurantes,Comodoro,4.5,TBD,1,unidade,31/12/2025,-
-98,restaurantes,Nacional,3.5,TBD,1,unidade,31/12/2025,-
-99,restaurantes,Chewie burguer,8.0,TBD,1,unidade,31/12/2025,-
-100,restaurantes,Nuu nikei,6.5,TBD,1,unidade,31/12/2025,-
-101,restaurantes,Madá,5.0,TBD,1,unidade,31/12/2025,-
-102,restaurantes,Tanuki,8.0,TBD,1,unidade,31/12/2025,-
-103,restaurantes,Ox room steakhouse,8.5,TBD,1,unidade,31/12/2025,-
-104,restaurantes,Giantura,7.5,TBD,1,unidade,31/12/2025,-
-105,restaurantes,Paco cocina bar,4.0,TBD,1,unidade,31/12/2025,-
-106,restaurantes,Graco burguer,1.5,TBD,1,unidade,31/12/2025,-
-107,restaurantes,Romeo,9.0,TBD,1,unidade,31/12/2025,-
-108,restaurantes,Hard rock,5.0,TBD,1,unidade,31/12/2025,-
-109,restaurantes,Poyos,5.0,TBD,1,unidade,31/12/2025,-
-110,restaurantes,Patagonia (Barracão),4.0,TBD,1,unidade,31/12/2025,-
-111,restaurantes,Sacristia,5.0,TBD,1,unidade,31/12/2025,-
-112,restaurantes,Carlo ristorante,7.5,TBD,1,unidade,31/12/2025,-
-113,restaurantes,Famiglia nino,6.0,TBD,1,unidade,31/12/2025,-
-114,restaurantes,Fun’iki,7.5,TBD,1,unidade,31/12/2025,-
-115,restaurantes,Hayo,9.0,TBD,1,unidade,31/12/2025,-
-116,restaurantes,American breakfast,2.5,TBD,1,unidade,31/12/2025,-
-117,restaurantes,Bresser,9.0,TBD,1,unidade,31/12/2025,-
-118,restaurantes,Neko,7.0,TBD,1,unidade,31/12/2025,-
-119,restaurantes,Sina,4.0,TBD,1,unidade,31/12/2025,-
-120,restaurantes,Nagairo,8.5,TBD,1,unidade,31/12/2025,-
-121,restaurantes,Barbuto,9.0,TBD,1,unidade,31/12/2025,-
-122,restaurantes,Big bear burguer,7.0,TBD,1,unidade,31/12/2025,-
-123,restaurantes,Pizzaria Augusta,3.0,TBD,1,unidade,31/12/2025,-
-124,restaurantes,Quintal do monge,4.0,TBD,1,unidade,31/12/2025,-
-125,restaurantes,Poke to wok,5.0,TBD,1,unidade,31/12/2025,-
-126,restaurantes,Scavollo,9.0,TBD,1,unidade,31/12/2025,-
-127,restaurantes,Terra madre,8.0,TBD,1,unidade,31/12/2025,-
-128,restaurantes,La linda,5.0,TBD,1,unidade,31/12/2025,-
-129,restaurantes,Mia Trattoria,4.0,TBD,1,unidade,31/12/2025,-
-130,restaurantes,Bite me,6.5,TBD,1,unidade,31/12/2025,-
-131,restaurantes,Trago,9.0,TBD,1,unidade,31/12/2025,-
-,,,
+1,restaurantes,Guacamole,9.5,Ótimo restaurante mexicano; aconselho fortemente a pedir ou taco de pollo; ou o burrito al pastor; só não é um 10 pela inconstância; que tem dias muito bons e tem outros mais ou menos,1,unidade,12-31-25,2023
+2,livros,1984,7.0,Achei o livro bom; porem estava com uma expectativa muito alta; acabei me frustrando um pouco,328,páginas,12-31-25,1949
+3,animes,One piece,10.0,Melhor anime,1122,episódios,12-31-25,1999
+4,games,Furi,9.5,TBD,13,horas,12-31-25,2025
+5,series-filmes,Stranger Things,7.5,TBD,54,episódios,12-31-25,2016
+6,livros,O problema dos três corpos,8.0,TBD,316,páginas,12-31-25,2006
+7,animes,Dandandan,9.0,TBD,24,episódios,12-31-25,2021
+8,animes,5-toubun no Hanayome,6.0,TBD,24,episódios,12-31-25,2017
+9,animes,86,6.5,TBD,24,episódios,12-31-25,2017
+10,animes,Akame ga kill,6.0,TBD,24,episódios,12-31-25,2010
+11,animes,ano hana,9.0,TBD,11,episódios,12-31-25,2011
+12,animes,Assasination Classroom,8.5,TBD,45,episódios,12-31-25,2012
+13,animes,Banana fish,10.0,TBD,24,episódios,12-31-25,1985
+14,animes,Beastars,5.0,TBD,12,episódios,12-31-25,2016
+15,animes,Black Clover,9.5,TBD,170,episódios,12-31-25,2015
+16,animes,Blue lock,9.0,TBD,38,episódios,12-31-25,2018
+17,animes,Erased,7.0,TBD,12,episódios,12-31-25,2012
+18,animes,My hero academia,9.5,TBD,159,episódios,12-31-25,2014
+19,animes,Chainsaw Man,8.5,TBD,12,episódios,12-31-25,2018
+20,animes,Charlotte,9.0,TBD,13,episódios,12-31-25,2015
+21,animes,Code Geass,7.0,TBD,50,episódios,12-31-25,2006
+22,animes,Cowboy Bebop,8.0,TBD,26,episódios,12-31-25,1998
+23,animes,Darling in the fraxx,4.0,TBD,24,episódios,12-31-25,2018
+24,animes,Death Note,6.0,TBD,37,episódios,12-31-25,2003
+25,animes,Dorohedoro,8.0,TBD,12,episódios,12-31-25,2000
+26,animes,Dr. Stone,5.0,TBD,24,episódios,12-31-25,2017
+27,animes,Dungeon ni deai,6.0,TBD,86,episódios,12-31-25,2013
+28,animes,Full metal alchemist Brotherhood,10.0,TBD,64,episódios,12-31-25,2009
+29,animes,To your eternity,5.5,TBD,20,episódios,12-31-25,2016
+30,animes,Gintama,8.5,TBD,303,episódios,12-31-25,2003
+31,animes,Golden Boy,8.0,TBD,6,episódios,12-31-25,1992
+32,animes,Great Pretender,10.0,TBD,23,episódios,12-31-25,2020
+33,animes,Haikyuu,10.0,TBD,73,episódios,12-31-25,2012
+34,animes,Put them on,5.0,TBD,12,episódios,12-31-25,2025
+35,animes,Horimiya,8.0,TBD,26,episódios,12-31-25,2011
+36,animes,Hunter x Hunter,9.5,TBD,148,episódios,12-31-25,1998
+37,animes,Jujutsu Kaizen,7.0,TBD,47,episódios,12-31-25,2018
+38,animes,Tower of god,6.5,TBD,39,episódios,12-31-25,2010
+39,animes,Demon Slayer,7.5,TBD,65,episódios,12-31-25,2016
+40,animes,Kuroko no Basket,10.0,TBD,75,episódios,12-31-25,2008
+41,animes,Nanatsu no Taizai,7.5,TBD,75,episódios,12-31-25,2012
+42,animes,Naruto,8.0,TBD,220,episódios,12-31-25,1999
+43,animes,Naruto shippuden,7.5,TBD,500,episódios,12-31-25,2007
+44,animes,No game No life,3.0,TBD,12,episódios,12-31-25,2012
+45,animes,One punch man,8.5,TBD,24,episódios,12-31-25,2009
+46,animes,Solo Levening,9.0,TBD,25,episódios,12-31-25,2016
+47,animes,Ranking of kings,10.0,TBD,23,episódios,12-31-25,2017
+48,animes,Bunny girl senpai,8.0,TBD,13,episódios,12-31-25,2014
+49,animes,Your lie in April,10.0,TBD,22,episódios,12-31-25,2011
+50,animes,Attack on Titan,9.0,TBD,63,episódios,12-31-25,2009
+51,animes,Evangelion,6.0,TBD,26,episódios,12-31-25,1995
+52,animes,Food Wars,8.0,TBD,86,episódios,12-31-25,2012
+53,animes,SK8,6.0,TBD,12,episódios,12-31-25,2021
+54,animes,Frieren,10.0,TBD,28,episódios,12-31-25,2020
+55,animes,SPY X Family,9.0,TBD,37,episódios,12-31-25,2019
+56,animes,Sword art online,10.0,TBD,75,episódios,12-31-25,2009
+57,animes,Shield hero,5.5,TBD,38,episódios,12-31-25,2013
+58,animes,The god of high school,7.5,TBD,13,episódios,12-31-25,2011
+59,animes,Vin land saga,9.5,TBD,46,episódios,12-31-25,2005
+60,animes,Violet evergarden,6.0,TBD,13,episódios,12-31-25,2015
+61,animes,Wave,5.0,TBD,12,episódios,12-31-25,2020
+62,animes,The promissed neverland,8.5,TBD,24,episódios,12-31-25,2016
+63,animes,Classroom of elite,9.0,TBD,38,episódios,12-31-25,2015
+64,restaurantes,Basset,7.5,TBD,1,unidade,12-31-25,-
+65,restaurantes,Antojitos,5.0,TBD,1,unidade,12-31-25,-
+66,restaurantes,Tadeu o rei do pierogi,6.0,TBD,1,unidade,12-31-25,-
+67,restaurantes,Fujii mercado municipal,10.0,TBD,1,unidade,12-31-25,-
+68,restaurantes,Bar do açougueiro,5.0,TBD,1,unidade,12-31-25,-
+69,restaurantes,Carne de onça fantinato,7.5,TBD,1,unidade,12-31-25,-
+70,restaurantes,Icaros,3.5,TBD,1,unidade,12-31-25,-
+71,restaurantes,Café cultura,6.0,TBD,1,unidade,12-31-25,-
+72,restaurantes,Famiglia ceschin,4.0,TBD,1,unidade,12-31-25,-
+73,restaurantes,Cão veio,7.0,TBD,1,unidade,12-31-25,-
+74,restaurantes,Nakaba,8.5,TBD,1,unidade,12-31-25,-
+75,restaurantes,Auau,6.0,TBD,1,unidade,12-31-25,-
+76,restaurantes,Oishi ramen bar,8.0,TBD,1,unidade,12-31-25,-
+77,restaurantes,Sushi arte,6.5,TBD,1,unidade,12-31-25,-
+78,restaurantes,Oue sushi,6.0,TBD,1,unidade,12-31-25,-
+79,restaurantes,Aska lamen,10.0,TBD,1,unidade,12-31-25,-
+80,restaurantes,Feirinha liberdade,10.0,TBD,1,unidade,12-31-25,-
+81,restaurantes,Kamikaze,7.0,TBD,1,unidade,12-31-25,-
+82,restaurantes,Ippai ramen,5.0,TBD,1,unidade,12-31-25,-
+83,restaurantes,Cho street food,4.5,TBD,1,unidade,12-31-25,-
+84,restaurantes,Kharina,5.5,TBD,1,unidade,12-31-25,-
+85,restaurantes,Azuki,5.0,TBD,1,unidade,12-31-25,-
+86,restaurantes,Itally café,5.0,TBD,1,unidade,12-31-25,-
+87,restaurantes,Kitsune,7.5,TBD,1,unidade,12-31-25,-
+88,restaurantes,55,5.5,TBD,1,unidade,12-31-25,-
+89,restaurantes,Bar do alemão,5.0,TBD,1,unidade,12-31-25,-
+90,restaurantes,Gyozabar,2.5,TBD,1,unidade,12-31-25,-
+91,restaurantes,Coco bambu,3.0,TBD,1,unidade,12-31-25,-
+92,restaurantes,Sotile,6.0,TBD,1,unidade,12-31-25,-
+93,restaurantes,Chez margot,9.0,TBD,1,unidade,12-31-25,-
+94,restaurantes,Soft,9.0,TBD,1,unidade,12-31-25,-
+95,restaurantes,Kolosso,2.0,TBD,1,unidade,12-31-25,-
+96,restaurantes,Aish baladi,5.0,TBD,1,unidade,12-31-25,-
+97,restaurantes,Comodoro,4.5,TBD,1,unidade,12-31-25,-
+98,restaurantes,Nacional,3.5,TBD,1,unidade,12-31-25,-
+99,restaurantes,Chewie burguer,8.0,TBD,1,unidade,12-31-25,-
+100,restaurantes,Nuu nikei,6.5,TBD,1,unidade,12-31-25,-
+101,restaurantes,Madá,5.0,TBD,1,unidade,12-31-25,-
+102,restaurantes,Tanuki,8.0,TBD,1,unidade,12-31-25,-
+103,restaurantes,Ox room steakhouse,8.5,TBD,1,unidade,12-31-25,-
+104,restaurantes,Giantura,7.5,TBD,1,unidade,12-31-25,-
+105,restaurantes,Paco cocina bar,4.0,TBD,1,unidade,12-31-25,-
+106,restaurantes,Graco burguer,1.5,TBD,1,unidade,12-31-25,-
+107,restaurantes,Romeo,9.0,TBD,1,unidade,12-31-25,-
+108,restaurantes,Hard rock,5.0,TBD,1,unidade,12-31-25,-
+109,restaurantes,Poyos,5.0,TBD,1,unidade,12-31-25,-
+110,restaurantes,Patagonia (Barracão),4.0,TBD,1,unidade,12-31-25,-
+111,restaurantes,Sacristia,5.0,TBD,1,unidade,12-31-25,-
+112,restaurantes,Carlo ristorante,7.5,TBD,1,unidade,12-31-25,-
+113,restaurantes,Famiglia nino,6.0,TBD,1,unidade,12-31-25,-
+114,restaurantes,Fun’iki,7.5,TBD,1,unidade,12-31-25,-
+115,restaurantes,Hayo,9.0,TBD,1,unidade,12-31-25,-
+116,restaurantes,American breakfast,2.5,TBD,1,unidade,12-31-25,-
+117,restaurantes,Bresser,9.0,TBD,1,unidade,12-31-25,-
+118,restaurantes,Neko,7.0,TBD,1,unidade,12-31-25,-
+119,restaurantes,Sina,4.0,TBD,1,unidade,12-31-25,-
+120,restaurantes,Nagairo,8.5,TBD,1,unidade,12-31-25,-
+121,restaurantes,Barbuto,9.0,TBD,1,unidade,12-31-25,-
+122,restaurantes,Big bear burguer,7.0,TBD,1,unidade,12-31-25,-
+123,restaurantes,Pizzaria Augusta,3.0,TBD,1,unidade,12-31-25,-
+124,restaurantes,Quintal do monge,4.0,TBD,1,unidade,12-31-25,-
+125,restaurantes,Poke to wok,5.0,TBD,1,unidade,12-31-25,-
+126,restaurantes,Scavollo,9.0,TBD,1,unidade,12-31-25,-
+127,restaurantes,Terra madre,8.0,TBD,1,unidade,12-31-25,-
+128,restaurantes,La linda,5.0,TBD,1,unidade,12-31-25,-
+129,restaurantes,Mia Trattoria,4.0,TBD,1,unidade,12-31-25,-
+130,restaurantes,Bite me,6.5,TBD,1,unidade,12-31-25,-
+131,restaurantes,Trago,9.0,TBD,1,unidade,12-31-25,-
