@@ -245,6 +245,199 @@
             font-size: 0.95rem;
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(20, 24, 28, 0.9);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: #1c2228;
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideIn 0.3s;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+            border-bottom: 1px solid #2c3440;
+        }
+
+        .modal-image {
+            flex-shrink: 0;
+            width: 200px;
+            aspect-ratio: 2/3;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #2c3440;
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-header-info {
+            flex: 1;
+        }
+
+        .modal-title {
+            color: #fff;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-rating {
+            display: inline-block;
+            background-color: #5ac8fa;
+            color: #14181c;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .modal-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .modal-meta-label {
+            color: #678;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-meta-value {
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-description {
+            color: #9ab;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .close {
+            color: #678;
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close:hover {
+            color: #5ac8fa;
+        }
+
+        /* Stats Page Styles */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background-color: #1c2228;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #2c3440;
+            transition: border-color 0.2s;
+        }
+
+        .stat-card:hover {
+            border-color: #5ac8fa;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #5ac8fa;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #9ab;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-unit {
+            color: #678;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .chart-container {
+            background-color: #1c2228;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .chart-title {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #activityChart {
+            width: 100%;
+            height: 400px;
+        }
+
         @media (max-width: 1024px) {
             .items-grid {
                 grid-template-columns: repeat(4, 1fr);
@@ -260,6 +453,19 @@
             .nav-links {
                 gap: 1rem;
                 font-size: 0.85rem;
+            }
+
+            .modal-header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .modal-image {
+                width: 150px;
+            }
+
+            .modal-meta {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -281,11 +487,20 @@
                 <li><a href="#" onclick="showPage('animes')">Animes</a></li>
                 <li><a href="#" onclick="showPage('games')">Games</a></li>
                 <li><a href="#" onclick="showPage('series-filmes')">Séries/Filmes</a></li>
+                <li><a href="#" onclick="showPage('stats')">Estatísticas</a></li>
             </ul>
         </nav>
     </header>
 
     <main id="main-content"></main>
+
+    <!-- Modal -->
+    <div id="itemModal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
 
     <script>
         let allData = [];
@@ -296,24 +511,6 @@
             'games': 'Games',
             'series-filmes': 'Séries/Filmes'
         };
-
-        // Dados de exemplo - SUBSTITUA PELO SEU CSV
-        const sampleData = `id,categoria,nome,nota,descricao,tamanho,unidade_tamanho,data_avaliacao,ano
-1,restaurantes,Pizzaria Bella,9.5,Melhor pizza da cidade com massa artesanal,1,unidade,2024-12-01,2024
-2,restaurantes,Sushi House,8.0,Sushi fresco e bem preparado,1,unidade,2024-11-15,2024
-3,restaurantes,Burger Station,7.5,Hambúrgueres artesanais saborosos,1,unidade,2024-10-20,2024
-4,livros,1984,10.0,Obra-prima distópica de Orwell,328,páginas,2024-12-10,1949
-5,livros,O Hobbit,9.0,Aventura fantástica encantadora,310,páginas,2024-11-20,1937
-6,livros,Sapiens,8.5,História fascinante da humanidade,443,páginas,2024-10-05,2011
-7,animes,Steins Gate,10.0,Viagem no tempo com roteiro perfeito,24,episódios,2024-12-15,2011
-8,animes,Fullmetal Alchemist,9.5,Alquimia e filosofia em perfeita harmonia,64,episódios,2024-11-25,2003
-9,animes,Death Note,9.0,Gato e rato psicológico intenso,37,episódios,2024-10-30,2006
-10,games,The Last of Us,10.0,Narrativa emocionante em mundo pós-apocalíptico,25,horas,2024-12-05,2013
-11,games,Hollow Knight,9.5,Metroidvania perfeito com arte linda,40,horas,2024-11-10,2017
-12,games,Celeste,9.0,Plataforma desafiador com mensagem poderosa,12,horas,2024-10-15,2018
-13,series-filmes,Breaking Bad,10.0,A melhor série de todos os tempos,62,episódios,2024-12-20,2008
-14,series-filmes,Inception,9.5,Thriller cerebral de Nolan,148,minutos,2024-11-05,2010
-15,series-filmes,The Office,8.5,Comédia mockumentary hilária,201,episódios,2024-10-10,2005`;
 
         function parseCSV(csv) {
             const lines = csv.trim().split('\n');
@@ -333,14 +530,21 @@
         }
 
         function loadData() {
-            // PARA USO REAL: Carregue seu CSV aqui
-            // fetch('data.csv').then(r => r.text()).then(csv => {
-            //     allData = parseCSV(csv);
-            //     showPage('home');
-            // });
-            
-            allData = parseCSV(sampleData);
-            showPage('home');
+            fetch('data.csv')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao carregar o CSV');
+                    }
+                    return response.text();
+                })
+                .then(csv => {
+                    allData = parseCSV(csv);
+                    showPage('home');
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert('Não foi possível carregar o arquivo data.csv');
+                });
         }
 
         function getImagePath(id) {
@@ -349,7 +553,7 @@
 
         function createItemCard(item) {
             return `
-                <div class="item-card">
+                <div class="item-card" onclick="openModal(${item.id})">
                     <div class="item-image">
                         <img src="${getImagePath(item.id)}" 
                              alt="${item.nome}"
@@ -492,12 +696,235 @@
 
             if (page === 'home') {
                 showHomePage();
+            } else if (page === 'stats') {
+                showStatsPage();
             } else {
                 showCategoryPage(page);
             }
         }
 
-        // Initialize
+        // Modal functions
+        function openModal(itemId) {
+            const item = allData.find(i => i.id == itemId);
+            if (!item) return;
+
+            const categoryName = CATEGORIES[item.categoria];
+            const unitLabel = item.unidade_tamanho === 'páginas' ? 'Páginas' :
+                            item.unidade_tamanho === 'episódios' ? 'Episódios' :
+                            item.unidade_tamanho === 'horas' ? 'Horas' :
+                            item.unidade_tamanho === 'minutos' ? 'Minutos' : 'Unidades';
+
+            const modalHTML = `
+                <div class="modal-header">
+                    <div class="modal-image">
+                        <img src="${getImagePath(item.id)}" 
+                             alt="${item.nome}"
+                             onerror="this.parentElement.innerHTML='<div class=\\'placeholder\\' style=\\'font-size: 4rem;\\'>📷</div>'">
+                    </div>
+                    <div class="modal-header-info">
+                        <h2 class="modal-title">${item.nome}</h2>
+                        <div class="modal-rating">${item.nota.toFixed(1)}/10</div>
+                        <div class="modal-meta">
+                            <div class="modal-meta-item">
+                                <span class="modal-meta-label">Categoria</span>
+                                <span class="modal-meta-value">${categoryName}</span>
+                            </div>
+                            <div class="modal-meta-item">
+                                <span class="modal-meta-label">${unitLabel}</span>
+                                <span class="modal-meta-value">${item.tamanho} ${item.unidade_tamanho}</span>
+                            </div>
+                            <div class="modal-meta-item">
+                                <span class="modal-meta-label">Ano</span>
+                                <span class="modal-meta-value">${item.ano}</span>
+                            </div>
+                            <div class="modal-meta-item">
+                                <span class="modal-meta-label">Avaliado em</span>
+                                <span class="modal-meta-value">${new Date(item.data_avaliacao).toLocaleDateString('pt-BR')}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-description">${item.descricao}</p>
+                </div>
+            `;
+
+            document.getElementById('modalBody').innerHTML = modalHTML;
+            document.getElementById('itemModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            if (!event || event.target.id === 'itemModal' || event.target.className === 'close') {
+                document.getElementById('itemModal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Stats page
+        function showStatsPage() {
+            const stats = calculateStats();
+            const monthlyData = getMonthlyData();
+
+            let html = `
+                <div class="container">
+                    <div class="hero">
+                        <h1>Estatísticas</h1>
+                        <p>Um resumo de todas as suas avaliações</p>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">${stats.totalPaginas.toLocaleString('pt-BR')}</div>
+                            <div class="stat-label">Páginas Lidas</div>
+                            <div class="stat-unit">${stats.totalLivros} livros</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">${stats.totalHoras.toLocaleString('pt-BR')}</div>
+                            <div class="stat-label">Horas Jogadas</div>
+                            <div class="stat-unit">${stats.totalGames} games</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">${stats.totalEpisodios.toLocaleString('pt-BR')}</div>
+                            <div class="stat-label">Episódios Vistos</div>
+                            <div class="stat-unit">${stats.totalAnimes} animes + ${stats.totalSeriesFilmes} séries/filmes</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">${stats.totalRestaurantes}</div>
+                            <div class="stat-label">Restaurantes</div>
+                            <div class="stat-unit">visitados</div>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <h3 class="chart-title">Atividade ao Longo do Ano</h3>
+                        <canvas id="activityChart"></canvas>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('main-content').innerHTML = html;
+            renderChart(monthlyData);
+        }
+
+        function calculateStats() {
+            const livros = allData.filter(i => i.categoria === 'livros');
+            const games = allData.filter(i => i.categoria === 'games');
+            const animes = allData.filter(i => i.categoria === 'animes');
+            const seriesFilmes = allData.filter(i => i.categoria === 'series-filmes');
+            const restaurantes = allData.filter(i => i.categoria === 'restaurantes');
+
+            return {
+                totalPaginas: livros.reduce((sum, i) => sum + i.tamanho, 0),
+                totalLivros: livros.length,
+                totalHoras: games.reduce((sum, i) => sum + i.tamanho, 0),
+                totalGames: games.length,
+                totalEpisodios: animes.reduce((sum, i) => sum + i.tamanho, 0) + 
+                               seriesFilmes.reduce((sum, i) => sum + i.tamanho, 0),
+                totalAnimes: animes.length,
+                totalSeriesFilmes: seriesFilmes.length,
+                totalRestaurantes: restaurantes.length
+            };
+        }
+
+        function getMonthlyData() {
+            const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+            const data = {
+                labels: months,
+                datasets: []
+            };
+
+            const categories = [
+                { key: 'restaurantes', label: 'Restaurantes', color: '#ff6b6b' },
+                { key: 'livros', label: 'Livros', color: '#4ecdc4' },
+                { key: 'animes', label: 'Animes', color: '#ffe66d' },
+                { key: 'games', label: 'Games', color: '#a8e6cf' },
+                { key: 'series-filmes', label: 'Séries/Filmes', color: '#ff8b94' }
+            ];
+
+            categories.forEach(cat => {
+                const monthCounts = new Array(12).fill(0);
+                
+                allData.filter(i => i.categoria === cat.key).forEach(item => {
+                    const month = new Date(item.data_avaliacao).getMonth();
+                    monthCounts[month]++;
+                });
+
+                data.datasets.push({
+                    label: cat.label,
+                    data: monthCounts,
+                    backgroundColor: cat.color,
+                    borderColor: cat.color,
+                    borderWidth: 2
+                });
+            });
+
+            return data;
+        }
+
+        function renderChart(data) {
+            const canvas = document.getElementById('activityChart');
+            const ctx = canvas.getContext('2d');
+            
+            const padding = 60;
+            const chartWidth = canvas.width - padding * 2;
+            const chartHeight = canvas.height - padding * 2;
+            const barWidth = chartWidth / (data.labels.length * data.datasets.length + data.labels.length);
+            const maxValue = Math.max(...data.datasets.flatMap(d => d.data));
+
+            canvas.width = canvas.offsetWidth;
+            canvas.height = 400;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.strokeStyle = '#2c3440';
+            ctx.lineWidth = 1;
+            for (let i = 0; i <= 5; i++) {
+                const y = padding + (chartHeight / 5) * i;
+                ctx.beginPath();
+                ctx.moveTo(padding, y);
+                ctx.lineTo(canvas.width - padding, y);
+                ctx.stroke();
+                
+                ctx.fillStyle = '#678';
+                ctx.font = '12px sans-serif';
+                ctx.textAlign = 'right';
+                ctx.fillText(Math.round(maxValue - (maxValue / 5) * i), padding - 10, y + 4);
+            }
+
+            data.labels.forEach((label, i) => {
+                data.datasets.forEach((dataset, j) => {
+                    const value = dataset.data[i];
+                    const barHeight = (value / maxValue) * chartHeight;
+                    const x = padding + i * (barWidth * data.datasets.length + barWidth) + j * barWidth;
+                    const y = padding + chartHeight - barHeight;
+
+                    ctx.fillStyle = dataset.backgroundColor;
+                    ctx.fillRect(x, y, barWidth * 0.8, barHeight);
+                });
+
+                ctx.fillStyle = '#9ab';
+                ctx.font = '12px sans-serif';
+                ctx.textAlign = 'center';
+                const labelX = padding + i * (barWidth * data.datasets.length + barWidth) + (barWidth * data.datasets.length) / 2;
+                ctx.fillText(label, labelX, canvas.height - padding + 20);
+            });
+
+            const legendY = 20;
+            let legendX = padding;
+            data.datasets.forEach((dataset, i) => {
+                ctx.fillStyle = dataset.backgroundColor;
+                ctx.fillRect(legendX, legendY, 15, 15);
+                
+                ctx.fillStyle = '#9ab';
+                ctx.font = '14px sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillText(dataset.label, legendX + 20, legendY + 12);
+                
+                legendX += ctx.measureText(dataset.label).width + 40;
+            });
+        }
+
         loadData();
     </script>
 </body>
