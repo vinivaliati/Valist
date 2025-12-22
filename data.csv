@@ -1,0 +1,4 @@
+id,categoria,nome,nota,descricao,tamanho,unidade_tamanho,data_avaliacao,ano
+1,restaurantes,Pizzaria Bella,9.5,Melhor pizza da cidade,1,unidade,2024-12-01,2024
+2,livros,1984,10.0,Obra-prima distópica,328,páginas,2024-12-10,1949
+3,animes,Steins Gate,10.0,Viagem no tempo perfeito,24,episódios,2024-12-15,2011
