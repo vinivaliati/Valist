@@ -607,12 +607,17 @@
                     return response.arrayBuffer();
                 })
                 .then(arrayBuffer => {
-                    allData = parseExcel(arrayBuffer);
-                    showPage('home');
+                    try {
+                        allData = parseExcel(arrayBuffer);
+                        showPage('home');
+                    } catch(err) {
+                        console.error('Erro ao processar Excel:', err);
+                        alert('Erro ao processar o arquivo data.xlsx');
+                    }
                 })
                 .catch(err => {
-                    console.error(err);
-                    alert('Não foi possível carregar o arquivo data.xlsx');
+                    console.error('Erro ao carregar arquivo:', err);
+                    alert('Não foi possível carregar o arquivo data.xlsx. Certifique-se de que o arquivo está na pasta raiz e não está aberto em outro programa.');
                 });
         }
 
