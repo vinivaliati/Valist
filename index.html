@@ -558,7 +558,9 @@
                 obj.nota = parseFloat(obj.nota);
                 obj.tamanho = parseInt(obj.tamanho);
                 obj.ano = parseInt(obj.ano);
-                obj.selo_de_qualidade = parseInt(obj.selo_de_qualidade) || 0;
+                obj.id = parseInt(obj.id);
+                const seloValue = obj.selo_de_qualidade?.trim();
+                obj.selo_de_qualidade = (seloValue === '1' || seloValue === 1) ? 1 : 0;
                 return obj;
             });
         }
