@@ -566,7 +566,7 @@
         </div>
     </div>
 
-    <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.min.js"></script>
         let allData = [];
         const CATEGORIES = {
             'restaurantes': 'Restaurantes',
@@ -576,41 +576,42 @@
             'series-filmes': 'Séries/Filmes'
         };
 
-        function parseCSV(csv) {
-            const lines = csv.trim().split('\n');
-            const headers = lines[0].split(',');
+        function parseExcel(arrayBuffer) {
+            const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+            const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+            const data = XLSX.utils.sheet_to_json(worksheet);
             
-            return lines.slice(1).map(line => {
-                const values = line.split(',');
-                const obj = {};
-                headers.forEach((header, index) => {
-                    obj[header.trim()] = values[index]?.trim() || '';
-                });
-                obj.nota = parseFloat(obj.nota);
-                obj.tamanho = parseInt(obj.tamanho);
-                obj.ano = parseInt(obj.ano);
-                obj.id = parseInt(obj.id);
-                const seloValue = obj.selo_de_qualidade?.trim();
-                obj.selo_de_qualidade = (seloValue === '1' || seloValue === 1) ? 1 : 0;
-                return obj;
+            return data.map(row => {
+                return {
+                    id: parseInt(row.id),
+                    nome: row.nome || '',
+                    categoria: row.categoria || '',
+                    nota: parseFloat(row.nota) || 0,
+                    data_avaliacao: row.data_avaliacao || '',
+                    tamanho: parseInt(row.tamanho) || 0,
+                    unidade_tamanho: row.unidade_tamanho || '',
+                    ano: parseInt(row.ano) || 0,
+                    descricao: row.descricao || '',
+                    selo_de_qualidade: (row.selo_de_qualidade === 1 || row.selo_de_qualidade === '1') ? 1 : 0
+                };
             });
         }
 
         function loadData() {
-            fetch('data.csv')
+            fetch('data.xlsx')
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error('Erro ao carregar o CSV');
+                        throw new Error('Erro ao carregar o Excel');
                     }
-                    return response.text();
+                    return response.arrayBuffer();
                 })
-                .then(csv => {
-                    allData = parseCSV(csv);
+                .then(arrayBuffer => {
+                    allData = parseExcel(arrayBuffer);
                     showPage('home');
                 })
                 .catch(err => {
                     console.error(err);
-                    alert('Não foi possível carregar o arquivo data.csv');
+                    alert('Não foi possível carregar o arquivo data.xlsx');
                 });
         }
 
