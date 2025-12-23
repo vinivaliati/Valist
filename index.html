@@ -578,46 +578,64 @@
         };
 
         function parseExcel(arrayBuffer) {
-            const workbook = XLSX.read(arrayBuffer, { type: 'array' });
-            const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-            const data = XLSX.utils.sheet_to_json(worksheet);
-            
-            return data.map(row => {
-                return {
-                    id: parseInt(row.id),
-                    nome: row.nome || '',
-                    categoria: row.categoria || '',
-                    nota: parseFloat(row.nota) || 0,
-                    data_avaliacao: row.data_avaliacao || '',
-                    tamanho: parseInt(row.tamanho) || 0,
-                    unidade_tamanho: row.unidade_tamanho || '',
-                    ano: parseInt(row.ano) || 0,
-                    descricao: row.descricao || '',
-                    selo_de_qualidade: (row.selo_de_qualidade === 1 || row.selo_de_qualidade === '1') ? 1 : 0
-                };
-            });
+            try {
+                const workbook = XLSX.read(new Uint8Array(arrayBuffer), { type: 'array' });
+                const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+                const data = XLSX.utils.sheet_to_json(worksheet);
+                
+                console.log('Dados brutos do Excel:', data);
+                console.log('Primeira linha:', data[0]);
+                
+                if (!data || data.length === 0) {
+                    throw new Error('Nenhum dado encontrado no Excel');
+                }
+                
+                return data.map((row, index) => {
+                    try {
+                        return {
+                            id: parseInt(row.id) || parseInt(row.ID) || index + 1,
+                            nome: row.nome || row.Nome || row.NOME || '',
+                            categoria: row.categoria || row.Categoria || row.CATEGORIA || '',
+                            nota: parseFloat(row.nota) || parseFloat(row.Nota) || parseFloat(row.NOTA) || 0,
+                            data_avaliacao: row.data_avaliacao || row.Data || row.DATA || row.data || '',
+                            tamanho: parseInt(row.tamanho) || parseInt(row.Tamanho) || parseInt(row.TAMANHO) || 0,
+                            unidade_tamanho: row.unidade_tamanho || row.Unidade || row.UNIDADE || row.unidade || '',
+                            ano: parseInt(row.ano) || parseInt(row.Ano) || parseInt(row.ANO) || 0,
+                            descricao: row.descricao || row.Descricao || row.DESCRICAO || '',
+                            selo_de_qualidade: (row.selo_de_qualidade === 1 || row.selo_de_qualidade === '1' || row.Selo === 1 || row.Selo === '1') ? 1 : 0
+                        };
+                    } catch(e) {
+                        console.error(`Erro ao processar linha ${index}:`, row, e);
+                        throw e;
+                    }
+                });
+            } catch(err) {
+                console.error('Erro ao fazer parse do Excel:', err);
+                throw err;
+            }
         }
 
         function loadData() {
             fetch('data.xlsx')
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error('Erro ao carregar o Excel');
+                        throw new Error('Arquivo não encontrado');
                     }
                     return response.arrayBuffer();
                 })
                 .then(arrayBuffer => {
                     try {
                         allData = parseExcel(arrayBuffer);
+                        console.log('Dados carregados com sucesso:', allData.length, 'itens');
                         showPage('home');
                     } catch(err) {
                         console.error('Erro ao processar Excel:', err);
-                        alert('Erro ao processar o arquivo data.xlsx');
+                        throw err;
                     }
                 })
                 .catch(err => {
-                    console.error('Erro ao carregar arquivo:', err);
-                    alert('Não foi possível carregar o arquivo data.xlsx. Certifique-se de que o arquivo está na pasta raiz e não está aberto em outro programa.');
+                    console.error('Erro ao carregar:', err);
+                    alert('Erro ao carregar data.xlsx:\n\n' + err.message + '\n\nVerifique se:\n1. O arquivo existe\n2. Não está aberto em outro programa\n3. As colunas estão nomeadas corretamente');
                 });
         }
 
