@@ -124,7 +124,7 @@
         .item-card {
             background-color: #1c2228;
             border-radius: 8px;
-            overflow: visible;
+            overflow: hidden;
             transition: transform 0.2s, box-shadow 0.2s;
             cursor: pointer;
             position: relative;
@@ -140,11 +140,12 @@
 
         .quality-seal {
             position: absolute;
-            top: -55px;
-            right: -55px;
-            width: 150px;
-            height: 150px;
+            top: 8px;
+            right: 8px;
+            width: 80px;
+            height: 80px;
             z-index: 10;
+            pointer-events: none;
             background-image: url('images/selovalidequalidade.png');
             background-size: contain;
             background-repeat: no-repeat;
