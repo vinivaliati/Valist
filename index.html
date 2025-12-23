@@ -122,7 +122,7 @@
         .item-card {
             background-color: #1c2228;
             border-radius: 8px;
-            overflow: hidden;
+            overflow: visible;
             transition: transform 0.2s, box-shadow 0.2s;
             cursor: pointer;
             position: relative;
@@ -588,12 +588,13 @@
         }
 
         function createItemCard(item) {
+            console.log(`Item ${item.id} (${item.nome}): selo_de_qualidade = ${item.selo_de_qualidade}`);
             const sealHtml = item.selo_de_qualidade === 1 
-                ? '<div class="quality-seal"><img src="images/selovalidequalidade.png" alt="Selo de Qualidade"></div>' 
+                ? '<div class="quality-seal"><img src="images/selovalidequalidade.png" alt="Selo de Qualidade" onerror="console.log(\'Erro ao carregar o seal\')"></div>' 
                 : '';
             
             return `
-                <div class="item-card" onclick="openModal(${item.id})">
+                <div class="item-card" onclick="openModal(${item.id})" data-seal="${item.selo_de_qualidade}">
                     ${sealHtml}
                     <div class="item-image">
                         <img src="${getImagePath(item.id)}" 
